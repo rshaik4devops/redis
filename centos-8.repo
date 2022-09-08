@@ -1,0 +1,6 @@
+[remi]
+name=Remi's RPM repository for Enterprise Linux 8 - $basearch
+mirrorlist=http://cdn.remirepo.net/enterprise/8/remi/$basearch/mirror
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0
