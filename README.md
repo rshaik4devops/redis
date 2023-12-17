@@ -16,31 +16,29 @@ Redis is used for in-memory data storage and allows users to access the data ove
 #make install
 #mkdir /etc/redis
 #mkdir /var/redis
-#cp utils/redis_init_script /etc/init.d/redis_6379
-#cp redis.conf /etc/redis/6379.conf
-#mkdir /var/redis/6379
-Edit the configuration file(/etc/redis/6379.conf), making sure to perform the following changes:
+#cp utils/ systemd-redis_server.service /etc/systemd/system/redis.service
+#cp redis.conf /etc/redis/redis.conf
+#mkdir -p /var/lib/redis/
+Edit the configuration file(/etc/redis/redis.conf), making sure to perform the following changes:
 
 Set daemonize to yes (by default it is set to no).
 Set the protected-mode no
 Set bind ip from 127.0.0.1 to 0.0.0.0
 Set the pidfile to /var/run/redis_6379.pid .
 Set the logfile to /var/log/redis_6379.log
-Set the dir to /var/redis/6379 (very important step!)
+Set the dir to /var/lib/redis (very important step!)
 
 
 ```
 
-2. Update the BindIP from `127.0.0.1` to `0.0.0.0` in config file `/etc/redis/6379.conf`
-3. add the new Redis init script to all the default runlevels using the following command
- 
-   update-rc.d redis_6379 defaults
 
 
-4. Start Redis Database
+
+2. Start Redis Database
 
 ```
-# /etc/init.d/redis_6379 start
+# systemctl enable redis.service
+# systemctl start redis
 
 ```
 
