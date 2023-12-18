@@ -21,7 +21,7 @@ Redis is used for in-memory data storage and allows users to access the data ove
 #mkdir -p /var/lib/redis/
 Edit the configuration file(/etc/redis/redis.conf), making sure to perform the following changes:
 
-Set daemonize to yes (by default it is set to no).
+
 Set the protected-mode no
 Set bind ip from 127.0.0.1 to 0.0.0.0
 Set the pidfile to /var/run/redis_6379.pid 
