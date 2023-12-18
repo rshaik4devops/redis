@@ -37,7 +37,21 @@ Set the dir to /var/lib/redis (very important step!)
 2. Start Redis Database
 
 ```
-downlaod the redis.service file and cop it to /etc/systemd/system/
+Create a redis.service file under /etc/systemd/system then add the below content in the file  and save the file.
+
+[Unit]
+Description=Redis
+After=syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+RestartSec=5s
+Restart=on-success
+
+[Install]
+WantedBy=multi-user.target
+
+3. Start the servie 
 
 # systemctl enable redis.service
 # systemctl start redis
